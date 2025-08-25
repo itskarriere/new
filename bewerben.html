@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jetzt Bewerben – Datenklar Consulting</title>
+    <meta name="description" content="Bewirb dich bei Datenklar Consulting. Wir suchen Talente im Bereich DSGVO, Datenanalyse und Risikomanagement.">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <a href="./" class="logo">DK</a>
+          <a href="./" class="brand-name">Datenklar Consulting</a>
+        </div>
+        <nav class="nav">
+          <a href="./index.html#leistungen">Leistungen</a>
+          <a href="./index.html#ansatz">Ansatz</a>
+          <a href="./index.html#kontakt">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container narrow">
+          <h1>Jetzt Bewerben</h1>
+          <p class="lead">Sende uns deine Bewerbung – die genauen Felder teilen Sie uns später mit, daher ist das Formular aktuell als Platzhalter angelegt.</p>
+
+          <form class="form" action="#" method="post" onsubmit="event.preventDefault(); alert('Danke! Wir haben Ihre Platzhalter-Bewerbung erhalten.');">
+            <div class="form-row">
+              <label for="name">Vollständiger Name</label>
+              <input id="name" name="name" type="text" placeholder="Max Mustermann" required>
+            </div>
+            <div class="form-row">
+              <label for="email">E-Mail</label>
+              <input id="email" name="email" type="email" placeholder="max@example.com" required>
+            </div>
+            <div class="form-row">
+              <label for="nachricht">Kurzprofil / Nachricht</label>
+              <textarea id="nachricht" name="nachricht" rows="5" placeholder="Erzähl uns kurz von dir…"></textarea>
+            </div>
+            <div class="form-row">
+              <label class="checkbox">
+                <input type="checkbox" required>
+                <span>Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzhinweisen zu.</span>
+              </label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="button button--primary">Bewerbung senden</button>
+              <a class="button button--ghost" href="./index.html">Zurück zur Startseite</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Datenklar Consulting</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+  </html>
+
