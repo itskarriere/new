@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bewerbung – DataComply Consulting GmbH</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">DataComply Consulting GmbH</h1>
+            <nav>
+                <a href="index.html">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Bewerbungsformular</h2>
+            <p>
+                Bitte füllen Sie das untenstehende Formular aus. Wir werden Ihre Angaben
+                streng vertraulich behandeln. Die genauen Datenfelder teilen Sie uns
+                später mit – derzeit dienen diese Platzhalter als Beispiel.
+            </p>
+            <form action="#" method="post" class="application-form">
+                <label>Vor- &amp; Nachname
+                    <input type="text" name="name" placeholder="Max Mustermann" required />
+                </label>
+                <label>E-Mail
+                    <input type="email" name="email" placeholder="max@beispiel.de" required />
+                </label>
+                <label>Telefon
+                    <input type="tel" name="phone" placeholder="0151 2345678" />
+                </label>
+                <label>Nachricht
+                    <textarea name="message" rows="5" placeholder="Ihre Nachricht …"></textarea>
+                </label>
+                <!-- Weitere Felder werden später ergänzt -->
+                <button type="submit" class="btn btn-primary">Bewerbung absenden</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> DataComply Consulting GmbH – Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
