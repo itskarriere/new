@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataComply Consulting GmbH</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">DataComply Consulting GmbH</h1>
+            <nav>
+                <a href="#about">Über uns</a>
+                <a href="#services">Leistungen</a>
+                <a href="bewerbung.html" class="btn btn-primary">Jetzt bewerben</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Ihr Partner für DSGVO-konformes Datenmanagement &amp; Risikominimierung</h2>
+            <p>
+                Wir sammeln, analysieren und sichern Ihre Datenströme – damit Sie sich voll
+                und ganz auf Ihr Kerngeschäft konzentrieren können.
+            </p>
+            <a href="bewerbung.html" class="btn btn-primary btn-lg">Jetzt bewerben</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Unternehmensprofil</h2>
+            <p>
+                DataComply Consulting GmbH ist ein junges, dynamisches Beratungsunternehmen,
+                das sich auf die Erfassung, Analyse und Bewertung geschäftsrelevanter Daten
+                im Rahmen des DSGVO-Risikomanagements spezialisiert hat. Unser Ziel ist es,
+                Organisationen jeder Größe dabei zu unterstützen, datengetriebene
+                Entscheidungen zu treffen, ohne die gesetzlichen Datenschutzauflagen zu
+                gefährden.
+            </p>
+            <p>
+                Mit einem interdisziplinären Team aus Data-Scientists, Jurist:innen und
+                IT-Sicherheits­expert:innen entwickeln wir maßgeschneiderte Konzepte zur
+                Datenverarbeitung, erstellen Risiko­analysen und implementieren
+                Compliance-Strategien, die Ihr Unternehmen zukunftssicher machen.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+        <div class="container">
+            <h2>Unsere Leistungen</h2>
+            <ul class="services-list">
+                <li>Erfassung &amp; Strukturierung heterogener Datenquellen</li>
+                <li>Automatisierte Datenanalyse &amp; Visualisierung</li>
+                <li>DSGVO-Risikobewertung &amp; Compliance-Mapping</li>
+                <li>Entwicklung von Datenschutz-Roadmaps</li>
+                <li>Schulung &amp; Sensibilisierung Ihrer Mitarbeitenden</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> DataComply Consulting GmbH – Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
