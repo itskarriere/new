@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karriere - DataSecure Analytics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4c6ef5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4c6ef5;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #4c6ef5 0%, #667eea 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .form-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-content {
+            padding: 3rem 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            color: #4c6ef5;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e8eeff;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .required {
+            color: #ff6b6b;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: #f8f9ff;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4c6ef5;
+            background: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.2rem;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 1rem;
+            background: #f8f9ff;
+            border: 2px dashed #4c6ef5;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-label:hover {
+            background: #e8eeff;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e8eeff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #4c6ef5, #667eea);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 110, 245, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 110, 245, 0.6);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Job Listings */
+        .job-listings {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .job-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #4c6ef5;
+        }
+
+        .job-card h4 {
+            color: #4c6ef5;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-card p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .job-tag {
+            background: #e8eeff;
+            color: #4c6ef5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .form-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">DataSecure Analytics</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#about">Über uns</a></li>
+                <li><a href="bewerbung.html">Karriere</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+            
+            <!-- Job Listings Section -->
+            <div class="job-listings">
+                <h2 style="color: white; text-align: center; margin-bottom: 2rem;">Aktuelle Stellenausschreibungen</h2>
+                
+                <div class="job-card">
+                    <h4>Senior Data Analyst (m/w/d)</h4>
+                    <p><strong>Standort:</strong> München / Remote</p>
+                    <p><strong>Erfahrung:</strong> 3+ Jahre</p>
+                    <p>Analyse komplexer Datensätze, Entwicklung von Dashboards und Reportings für unsere Kunden im DSGVO-Compliance Bereich.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Python</span>
+                        <span class="job-tag">SQL</span>
+                        <span class="job-tag">Power BI</span>
+                        <span class="job-tag">DSGVO</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h4>DSGVO Consultant (m/w/d)</h4>
+                    <p><strong>Standort:</strong> Frankfurt / Remote</p>
+                    <p><strong>Erfahrung:</strong> 2+ Jahre</p>
+                    <p>Beratung von Unternehmen bei der Umsetzung der DSGVO-Anforderungen und Entwicklung von Compliance-Strategien.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">DSGVO</span>
+                        <span class="job-tag">Datenschutz</span>
+                        <span class="job-tag">Consulting</span>
+                        <span class="job-tag">Jura</span>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <h4>Junior Data Engineer (m/w/d)</h4>
+                    <p><strong>Standort:</strong> Berlin / Remote</p>
+                    <p><strong>Erfahrung:</strong> 0-2 Jahre</p>
+                    <p>Aufbau und Wartung von Dateninfrastrukturen, ETL-Prozesse und API-Entwicklung für Datenerfassungssysteme.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Python</span>
+                        <span class="job-tag">AWS</span>
+                        <span class="job-tag">Docker</span>
+                        <span class="job-tag">ETL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <div class="form-container">
+                <div class="form-header">
+                    <h1>Bewerbungsformular</h1>
+                    <p>Werden Sie Teil unseres innovativen Teams und gestalten Sie die Zukunft der Datenanalyse mit!</p>
+                </div>
+
+                <div class="form-content">
+                    <form id="applicationForm" action="#" method="POST">
+                        <!-- Persönliche Daten -->
+                        <div class="form-section">
+                            <h3>Persönliche Daten</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Vorname <span class="required">*</span></label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Nachname <span class="required">*</span></label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">E-Mail-Adresse <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefonnummer</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="birthdate">Geburtsdatum</label>
+                                    <input type="date" id="birthdate" name="birthdate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationality">Staatsangehörigkeit</label>
+                                    <input type="text" id="nationality" name="nationality">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Adresse</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Straße, PLZ, Stadt"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Bewerbungsdaten -->
+                        <div class="form-section">
+                            <h3>Bewerbungsdaten</h3>
+                            <div class="form-group">
+                                <label for="position">Gewünschte Position <span class="required">*</span></label>
+                                <select id="position" name="position" required>
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="senior-data-analyst">Senior Data Analyst (m/w/d)</option>
+                                    <option value="dsgvo-consultant">DSGVO Consultant (m/w/d)</option>
+                                    <option value="junior-data-engineer">Junior Data Engineer (m/w/d)</option>
+                                    <option value="other">Initiativbewerbung</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="availability">Verfügbarkeit ab</label>
+                                    <input type="date" id="availability" name="availability">
+                                </div>
+                                <div class="form-group">
+                                    <label for="salary">Gehaltsvorstellung (brutto/Jahr)</label>
+                                    <input type="text" id="salary" name="salary" placeholder="z.B. 65.000 €">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="workModel">Bevorzugtes Arbeitsmodell</label>
+                                <select id="workModel" name="workModel">
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="office">Vollzeit im Büro</option>
+                                    <option value="remote">Vollzeit remote</option>
+                                    <option value="hybrid">Hybrid (Büro + Remote)</option>
+                                    <option value="flexible">Flexibel</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Qualifikationen -->
+                        <div class="form-section">
+                            <h3>Qualifikationen & Erfahrung</h3>
+                            <div class="form-group">
+                                <label for="education">Höchster Bildungsabschluss</label>
+                                <select id="education" name="education">
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="bachelor">Bachelor</option>
+                                    <option value="master">Master</option>
+                                    <option value="phd">Promotion</option>
+                                    <option value="apprenticeship">Ausbildung</option>
+                                    <option value="other">Sonstiges</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="experience">Berufserfahrung (Jahre)</label>
+                                <select id="experience" name="experience">
+                                    <option value="">Bitte wählen...</option>
+                                    <option value="0-1">0-1 Jahre</option>
+                                    <option value="2-3">2-3 Jahre</option>
+                                    <option value="4-7">4-7 Jahre</option>
+                                    <option value="8-15">8-15 Jahre</option>
+                                    <option value="15+">Über 15 Jahre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="skills">Relevante Kenntnisse & Fähigkeiten</label>
+                                <textarea id="skills" name="skills" rows="4" placeholder="z.B. Python, SQL, DSGVO, Machine Learning, Power BI, etc."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="motivation">Motivation & Warum DataSecure Analytics?</label>
+                                <textarea id="motivation" name="motivation" rows="5" placeholder="Beschreiben Sie kurz Ihre Motivation und warum Sie bei DataSecure Analytics arbeiten möchten..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Dokumente -->
+                        <div class="form-section">
+                            <h3>Bewerbungsunterlagen</h3>
+                            <div class="form-group">
+                                <label for="cv">Lebenslauf (PDF, max. 5MB)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="cv" name="cv" accept=".pdf" required>
+                                    <label for="cv" class="file-upload-label">
+                                        📄 Lebenslauf auswählen oder hier hinziehen
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="coverLetter">Anschreiben (PDF, optional)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="coverLetter" name="coverLetter" accept=".pdf">
+                                    <label for="coverLetter" class="file-upload-label">
+                                        📝 Anschreiben auswählen oder hier hinziehen
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="certificates">Zeugnisse/Zertifikate (PDF, optional)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="certificates" name="certificates" accept=".pdf" multiple>
+                                    <label for="certificates" class="file-upload-label">
+                                        🎓 Zeugnisse auswählen oder hier hinziehen
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Datenschutz -->
+                        <div class="form-section">
+                            <h3>Datenschutz & Einverständnis</h3>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">
+                                    Ich bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Bewerbung 
+                                    gespeichert und verarbeitet werden. Die Daten werden nach Abschluss des 
+                                    Bewerbungsverfahrens gelöscht, sofern keine anderweitige Vereinbarung getroffen wird. 
+                                    <span class="required">*</span>
+                                </label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">
+                                    Ich möchte über zukünftige Stellenausschreibungen und Neuigkeiten von 
+                                    DataSecure Analytics per E-Mail informiert werden.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="submit-section">
+                            <button type="submit" class="submit-btn">Bewerbung absenden</button>
+                            <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                                Nach dem Absenden erhalten Sie eine Bestätigungsmail. Wir melden uns innerhalb von 2 Werktagen bei Ihnen.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Form enhancement
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ff6b6b';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#e0e6ed';
+                }
+            });
+            
+            if (isValid) {
+                alert('Vielen Dank für Ihre Bewerbung! Wir haben Ihre Daten erhalten und melden uns in Kürze bei Ihnen.');
+                // Here you would normally send the data to your server
+                // this.submit();
+            } else {
+                alert('Bitte füllen Sie alle Pflichtfelder aus.');
+            }
+        });
+
+        // File upload enhancement
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.files.length > 0) {
+                    label.textContent = `✓ ${this.files.length} Datei(en) ausgewählt`;
+                    label.style.background = '#e8f5e8';
+                    label.style.borderColor = '#4caf50';
+                } else {
+                    label.textContent = label.getAttribute('data-original') || 'Datei auswählen';
+                    label.style.background = '#f8f9ff';
+                    label.style.borderColor = '#4c6ef5';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

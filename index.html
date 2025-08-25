@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSecure Analytics - Ihr Partner für Datenanalyse & DSGVO-Compliance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4c6ef5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4c6ef5;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .content-section {
+            padding: 3rem;
+        }
+
+        .content-section h2 {
+            color: #4c6ef5;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8eeff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #4c6ef5;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #4c6ef5;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4c6ef5;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .content-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">DataSecure Analytics</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="bewerbung.html">Karriere</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Ihr Partner für sichere Datenanalyse</h1>
+            <p>Professionelle DSGVO-Compliance, Risikomanagement und Datenerfassung für Ihr Unternehmen</p>
+            <a href="bewerbung.html" class="cta-button">Jetzt Bewerben</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-content">
+            <section class="content-section" id="services">
+                <h2>Unsere Expertise</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                    DataSecure Analytics ist Ihr spezialisierter Partner für datengetriebene Lösungen und Compliance-Management. 
+                    Wir helfen Unternehmen dabei, ihre Daten sicher zu erfassen, intelligent zu analysieren und rechtssicher zu verwalten.
+                </p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🔒 DSGVO-Compliance & Risikomanagement</h3>
+                        <p>Umfassende Beratung zur Einhaltung der Datenschutz-Grundverordnung</p>
+                        <ul>
+                            <li>Datenschutz-Folgenabschätzung (DSFA)</li>
+                            <li>Verzeichnis von Verarbeitungstätigkeiten</li>
+                            <li>Technische und organisatorische Maßnahmen (TOM)</li>
+                            <li>Schulungen für Mitarbeiter</li>
+                            <li>Kontinuierliche Compliance-Überwachung</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>📊 Datenerfassung & -strukturierung</h3>
+                        <p>Effiziente Systeme zur systematischen Datensammlung und -organisation</p>
+                        <ul>
+                            <li>Automatisierte Datenerfassungssysteme</li>
+                            <li>API-Integration und Schnittstellen</li>
+                            <li>Datenqualitätsmanagement</li>
+                            <li>ETL-Prozesse (Extract, Transform, Load)</li>
+                            <li>Real-time Datenmonitoring</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>🔍 Business Intelligence & Analytics</h3>
+                        <p>Verwandeln Sie Ihre Daten in strategische Erkenntnisse</p>
+                        <ul>
+                            <li>Predictive Analytics und Machine Learning</li>
+                            <li>Custom Dashboard-Entwicklung</li>
+                            <li>KPI-Definition und -Tracking</li>
+                            <li>Automated Reporting</li>
+                            <li>Data Visualization</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>⚡ Digitale Transformation</h3>
+                        <p>Modernisierung Ihrer Dateninfrastruktur für die Zukunft</p>
+                        <ul>
+                            <li>Cloud-Migration und -Architektur</li>
+                            <li>Prozessoptimierung und Automatisierung</li>
+                            <li>Integration bestehender Systeme</li>
+                            <li>Skalierbare Datenbanklösungen</li>
+                            <li>Change Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section" id="about">
+                <h2>Warum DataSecure Analytics?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Mit über 10 Jahren Erfahrung im Datenmanagement und Compliance-Bereich bieten wir 
+                    maßgeschneiderte Lösungen für Unternehmen jeder Größe. Unser interdisziplinäres Team 
+                    aus Datenanalysten, Datenschutzexperten und IT-Spezialisten gewährleistet höchste 
+                    Qualität und Sicherheit.
+                </p>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div>Erfolgreich umgesetzte Projekte</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99.9%</div>
+                        <div>Compliance-Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div>Support & Monitoring</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">ISO 27001</div>
+                        <div>Zertifiziert</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 DataSecure Analytics GmbH. Alle Rechte vorbehalten.</p>
+            <p>Kontakt: info@datasecure-analytics.de | Tel: +49 (0) 123 456 789</p>
+        </div>
+    </footer>
+</body>
+</html>
